@@ -892,6 +892,7 @@ class DesktopWindow(SystrayWindow):
         """
         Invoked when all commands found for a project have been registered.
         """
+        self.project_overlay.hide()
 
         try:
             from sgtk.util.metrics import EventMetric as EventMetric
@@ -1156,7 +1157,6 @@ class DesktopWindow(SystrayWindow):
         self._command_panel.configure(
             self.current_project, groups, show_recents=show_recents
         )
-        self.project_overlay.hide()
 
     def clear_app_uis(self):
         # empty the project commands
