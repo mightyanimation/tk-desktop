@@ -892,7 +892,6 @@ class DesktopWindow(SystrayWindow):
         """
         Invoked when all commands found for a project have been registered.
         """
-        self.project_overlay.hide()
 
         try:
             from sgtk.util.metrics import EventMetric as EventMetric
@@ -905,6 +904,8 @@ class DesktopWindow(SystrayWindow):
         except:
             # ignore all errors. ex: using a core that doesn't support metrics
             pass
+
+        self.project_overlay.hide()
 
         if self._project_command_count == 0:
             # Show the UI that indicates no project commands have been configured
